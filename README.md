@@ -63,7 +63,7 @@ Tentative schedule - *Note* two lectures will take place on Thursdays because of
 
 ### Participation
 
-Ask as many questions as you have. I would encourage you to ask the questions in class by raising your hand. However, I understand that you may not feel comfortable asking in front of a large group and so would prefer to ask your question anonymously. To facilitate as many questions in-class as possible, each lecture I will be opening a stream on [streme.co](http://streme.co/) to allow anyone to ask questions anonymously. I will have the stream running throughout lecture and will answer questions as they are asked. I will post the unique stream URL for the lecture at the start of the lecture. 
+Ask as many questions as you have. I would encourage you to ask the questions in class by raising your hand. However, I understand that you may not feel comfortable asking in front of a large group and so would prefer to ask your question anonymously. To facilitate as many questions in-class as possible, we will be using a NYU student built application called [edu.chat](https://edu.chat).  Each of you will get an individual login.  In addition, to be able to ask questions anonymously, I will be providing anonymous login information as well (will be posted here as soon as it's setup). I will be monitoring the chat throughout lecture and will answer questions as they are asked.
 
 ### GitHub Usage
 
@@ -144,7 +144,7 @@ The lowest scoring homework assignment will not be counted.
 Any form of cheating or using others' code will not be tolerated. All work must be original. If two students hand in essentially the same code then __both__ students will receive __0__ for that assignment and also for another assignment (their highest scoring) and may also face further disciplinary action from NYU.     
 
 ### Learning Needs
-If you have any special learning needs please alert me as soon as possible. We will coordinate as per NYU policy and reach out to [Judith Simonsen](js6244@nyu.edu)
+If you have any special learning needs please alert me as soon as possible. We will coordinate as per NYU policy and reach out to [Judith Simonsen](mailto:js6244@nyu.edu)
 
 ### Office Hours
 If you want to meet me prior to class please email me so that I can ensure I'm available. If you do not email me in advance I may be early enough prior to lecture to have a meaningful conversation. Additionally, if meeting prior to lecture does not work for you I will make myself available via Google Hangout (video call).  Just send me an email and we can coordinate a time that will work for both of us.
