@@ -46,18 +46,18 @@ Tentative schedule - *Note* two lectures will take place on Thursdays because of
 | :-----: | :--: | ----- | ------------------ |
 | 1 | 9/7 | Introduction / Basics | 1 & 2 & 13.1 |
 | 2 | 9/14 | Procedural Java | 3 |
-| 3 | *9/22* Thursday | Objects | 4 |
-| 4 | 9/28 | Inheritance | 5 (not 5.3 or 5.7) |
-| 5 | 10/5 | Interfaces / Nested & Inner Classes | 6 (not 6.3 or 6.5) |
+| 3 | __9/22__ Thursday | Objects | 4 |
+| 4 | 9/28 | Inheritance | 5 (*not 5.3 or 5.7*) |
+| 5 | 10/5 | Interfaces / Nested & Inner Classes | 6 (*not 6.3 or 6.5*) |
 | 6 | 10/12 | Exceptions / Debugging / Annotations & Regular Expressions | 7 & [supplemental] |
 | - | 10/19 | __Midterm__ (see [Exams](#exams)) | - |
-| 7 | 10/26 | Generics | 8 (not 8.9) |
+| 7 | 10/26 | Generics | 8 (*not 8.9*) |
 | 8 | 11/2 | Collections | 9 & 5.3 |
-| 9 | 11/9 | Concurrency | 14 & Goetz (not 14.11) |
-| 10 | 11/16 | Concurrency | 14 (not 14.11) |
+| 9 | 11/9 | Concurrency | 14 & Goetz (*not 14.11*) |
+| 10 | 11/16 | Concurrency | 14 & Goetz (*not 14.11*) |
 | - | 11/23 | Thanksgiving Break | - |
-| 11 | *12/1* Thursday | IO/NIO | |
-| 12 | 12/7 | Functional Java (Streams / etc) | |
+| 11 | __12/1__ Thursday | IO/NIO | [supplemental] |
+| 12 | 12/7 | Functional Java (Lambdas / Streams / etc) | 6.3 & [supplemental] |
 | 13 | 12/14 | Libraries (Guava / Jackson) / Testing (Junit / Mockito) / IDEs / Patterns (Builder, Dependency Injection, etc) | |
 | - | 12/21 | __Final__ (see [Exams](#exams)) | - |
 
