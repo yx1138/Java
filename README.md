@@ -63,7 +63,7 @@ Tentative schedule - *Note* two lectures will take place on Thursdays because of
 
 ### Participation
 
-Ask as many questions as you have. I would encourage you to ask the questions in class by raising your hand. However, I understand that you may not feel comfortable asking in front of a large group and so would prefer to ask your question anonymously. To facilitate as many questions in-class as possible, we will be using a NYU student built application called [edu.chat](https://edu.chat).  Each of you will get an individual login.  In addition, to be able to ask questions anonymously, I will be providing anonymous login information as well (will be posted here as soon as it's setup). I will be monitoring the chat throughout lecture and will answer questions as they are asked.
+Ask as many questions as you have. I would encourage you to ask the questions in class by raising your hand. However, I understand that you may not feel comfortable asking in front of a large group and so would prefer to ask your question anonymously. To facilitate as many questions in-class as possible, we will be using a NYU student built application called [edu.chat](https://edu.chat).  Each of you will get an individual login.  In addition, to be able to ask questions anonymously, I will be posting anonymous login credentials. I will be monitoring the chat throughout lecture and will answer questions as they are asked.  A link to the course's specific edu.chat URL, information about your login and the anonymous login will be captured and updated [here](edu.chat.md).
 
 ### GitHub Usage
 
@@ -78,6 +78,8 @@ You must notify me of your GitHub user id. As soon as you do, I will verify that
 Ensure you have access to this [repository](https://github.com/NYU-CS9053/Fall-2016) __ASAP (as soon as possible)__
 
 Upon getting access you must [Fork](https://help.github.com/articles/fork-a-repo) the repository. This will give you write access to a copied version owned by your user. 
+
+I have created a help/cheat-sheet for using Git/GitHub in this class. You can always find it [here](git.commands).
 
 ### Homework
 
