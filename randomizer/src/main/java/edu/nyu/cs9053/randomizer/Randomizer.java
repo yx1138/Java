@@ -75,7 +75,7 @@ public class Randomizer {
         Map<String, Emoji> userEmojiMapping = new HashMap<>(studentIds.size(), 1.0f);
         IntStream.range(0, studentIds.size()).forEach(index -> userEmojiMapping.put(studentIds.get(index), emojis.get(index)));
         /**
-         * Line 66 would be written as following in Java 1.7 and below
+         * Line 76 would be written as following in Java 1.7 and below
          *
          * for (int i = 0; i < studentIds.size(); i++) {
          *     userEmojiMapping.put(studentIds.get(i), emojis.get(i));
@@ -83,7 +83,7 @@ public class Randomizer {
          */
         List<Integer> potentialIndices = IntStream.range(0, studentIds.size()).boxed().collect(toList());
         /**
-         * Line 81 would be written as following in Java 1.7 and below
+         * Line 84 would be written as following in Java 1.7 and below
          *
          * List<Integer> potentialIndices = new ArrayList<>(studentIds.size());
          *     for (int i = 0; i < studentIds.size(); i++) {
@@ -96,7 +96,7 @@ public class Randomizer {
                 .mapToObj(studentIds::get)
                 .collect(toList());
         /**
-         * Lines 90-94 would be written as following in Java 1.7 and below (caveat 'double diamond' only
+         * Lines 93-97 would be written as following in Java 1.7 and below (caveat 'double diamond' only
          * available in 1.7 and above and generics only in 1.5 and above)
          *
          * List<String> randomlySelectedStudents = new ArrayList<>(numberToSelect);
@@ -111,7 +111,7 @@ public class Randomizer {
                 .stream().map(userEmojiMapping::get)
                 .forEach(emoji -> System.out.printf("Student associated with  %s  [ %s ] must review!%n", emoji.toString(), emoji.name()));
         /**
-         * Lines 107-109 would be written as following in Java 1.7 and below (caveat for-each loop only available
+         * Lines 110-112 would be written as following in Java 1.7 and below (caveat for-each loop only available
          * in 1.5 and above and printf style printing only available in 1.5 and above)
          *
          * for (String randomlySelectedUser : randomlySelectedStudents) {
@@ -122,7 +122,7 @@ public class Randomizer {
         StringBuilder buffer = new StringBuilder(String.format("Id,Emoji%n"));
         userEmojiMapping.forEach((key, value) -> buffer.append(String.format("%s,%s%n", key, value.name())));
         /**
-         * Line 121 would be written as following in Java 1.7 and below
+         * Line 123 would be written as following in Java 1.7 and below
          *
          * for (Map.Entry<String, Emoji> entry : userEmojiMapping.entrySet()) {
          *     buffer.append(String.format("%s,%s%n", entry.getKey(), entry.getValue().name());
