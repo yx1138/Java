@@ -5,5 +5,5 @@
 ## your individual login information will be provided after drop period (as soon as the rooster is finalized)
 
 ## to login as an anonymous user use the following login information
-* username = anonymouslangel@nyu.edu
+* username = anonymouscs9053@nyu.edu
 * password = anonymous
