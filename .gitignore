@@ -9,7 +9,6 @@ target/
 gen/
 out/
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
