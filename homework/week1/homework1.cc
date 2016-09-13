@@ -55,7 +55,7 @@ int print_heap(){
 	std::cout << heap[heapnum-1]<<std::endl;
 	return 0;
 }
-//check the input whether its type is valid or not
+//check the input whether its type is valid or not.
 int input_check(){
 	int input_mount=0;
 	string word;
@@ -89,14 +89,12 @@ int player_human_process(){
 	//check the heap number is correct or not
 	if(human_input_heap_num<1 || human_input_heap_num > heapnum){
 	std::cout << "Player human that is an invalid move, try again" << std::endl;
-	//std::cout << "x is wrong " << human_input_heap_num<<std::endl;
 	player_human_process();
 	}
 	else {
 		// check the number of the object the player wants to take is valid or not
 		if(human_input_take_num<=0 || human_input_take_num>heap[human_input_heap_num-1]){
 			std::cout << "Player human that is an invalid move, try again" << std::endl;
-			//std::cout << "y is wrong " <<human_input_take_num<< std::endl;
 			player_human_process();
 		}
 		else {
