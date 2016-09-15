@@ -120,7 +120,7 @@ See [Grading](#grading) for dates and overall grade percentage.
 | Activity | Date Due | Overall Grade Percentage |
 | :------- | :------: | :----------------------: |
 | Homework 1 | 9/14 @ 5 pm | 5% |
-| Homework 2 | 9/21 @ 5 pm | 5% |
+| Homework 2 | 9/22 @ 5 pm | 5% |
 | Homework 3 | 9/28 @ 5 pm | 5% |
 | Homework 4 | 10/5 @ 5 pm | 5% |
 | Homework 5 | 10/12 @ 5 pm | 5% |
@@ -129,7 +129,7 @@ See [Grading](#grading) for dates and overall grade percentage.
 | Homework 7 | 11/2 @ 5 pm | 5% |
 | Homework 8 | 11/9 @ 5 pm | 5% |
 | Homework 9 | 11/16 @ 5 pm | 5% |
-| Homework 10 | 11/30 @ 5 pm | 5% |
+| Homework 10 | 12/1 @ 5 pm | 5% |
 | Homework 11 | 12/7 @ 5 pm | 5% |
 | Final | 12/21 | 30% |
 
