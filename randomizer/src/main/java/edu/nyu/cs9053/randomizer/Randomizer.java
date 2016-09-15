@@ -26,9 +26,22 @@ public class Randomizer {
         }
         String filePath = args[0];
         int numberToSelect = Integer.valueOf(args[1]);
-        List<String> userIds = load(filePath);
-        Randomizer randomizer = new Randomizer(numberToSelect, userIds);
+        List<String> studentIds = load(filePath);
+        List<String> nonEmptyUserIds = removeEmptyStudentIds(studentIds);
+        System.out.printf("Randomizing %d student ids%n", nonEmptyUserIds.size());
+        Randomizer randomizer = new Randomizer(numberToSelect, nonEmptyUserIds);
         randomizer.process();
+    }
+
+    private static List<String> removeEmptyStudentIds(List<String> studentIds) {
+        List<String> nonEmpty = new ArrayList<>(studentIds.size());
+        for (String studentId : studentIds) {
+            if ((studentId == null) || studentId.trim().isEmpty()) {
+                continue;
+            }
+            nonEmpty.add(studentId.trim());
+        }
+        return nonEmpty;
     }
 
     private static List<String> load(String filePath) {
