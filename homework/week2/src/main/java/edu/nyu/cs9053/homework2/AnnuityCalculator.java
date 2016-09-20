@@ -64,9 +64,11 @@
 
         public BigDecimal computeMonthlyCompoundedFutureValueOfAnnuity(double annuityAmount, double annualInterestRateInPercent, int years) {
             BigDecimal annuity_Amount = new BigDecimal (Double.valueOf(annuityAmount));
+            //convert the annualInterestRateInPercent to double .
             BigDecimal annual_Interest_RateInPercent = new BigDecimal(Double.valueOf(annualInterestRateInPercent));
             BigDecimal annual_Interest= annual_Interest_RateInPercent.divide(new BigDecimal(Double.valueOf(100d)),DEFAULT_SCALE,DEFAULT_ROUNDING_MODE);
             BigDecimal one = new BigDecimal (Double.valueOf(1d));
+            //the m in the formula is 12.
             BigDecimal month = new BigDecimal (Double.valueOf(12d));
             //FVac = P * [ (((1 + (r / m))^(m * t)) - 1) / (r / m) ]
             BigDecimal result = annuity_Amount.multiply(((((annual_Interest.divide(month,DEFAULT_SCALE,DEFAULT_ROUNDING_MODE)).add(one)).pow(years*12)).subtract(one)).divide((annual_Interest.divide(month,DEFAULT_SCALE,DEFAULT_ROUNDING_MODE)),DEFAULT_SCALE,DEFAULT_ROUNDING_MODE));

@@ -18,7 +18,7 @@ public class PolylineEncoder {
 	*/
     public  String encodePolyline(Gps[] gpsPoints) {
     	String result="";
-    	//the latitude and the longtitude of the previous point
+    	//the latitude and the longtitude of the previous point as integer
     	int base_lat=0;
     	int base_lng=0;
     	for (Gps gpspoint : gpsPoints){
@@ -26,6 +26,7 @@ public class PolylineEncoder {
     		//Gps point= new Gps(gpspoint.getLatitude()-base_lat,gpspoint.getLongitude()-base_lng);
             int lat_e5_int=(int) Math.floor(gpspoint.getLatitude() * 1e5);
             int lng_e5_int=(int) Math.floor(gpspoint.getLongitude() * 1e5);
+            //the change in latitude and longtitude
             int poly_lat = lat_e5_int-base_lat;  
             int poly_lng = lng_e5_int-base_lng;  
     		//call the encodeGpsPoint for every point

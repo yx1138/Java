@@ -66,6 +66,7 @@ public class Program {
     		}
     		// the second argument is not compound 
     		else {
+               // check the argument number
     			if (args_size !=4)
     			{
     				System.out.println("Invalid argument");
