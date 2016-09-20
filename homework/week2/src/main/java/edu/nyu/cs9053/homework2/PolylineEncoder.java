@@ -19,28 +19,22 @@ public class PolylineEncoder {
     public  String encodePolyline(Gps[] gpsPoints) {
     	String result="";
     	//the latitude and the longtitude of the previous point
-    	double base_lat=0d;
-    	double base_lng=0d;
+    	int base_lat=0;
+    	int base_lng=0;
     	for (Gps gpspoint : gpsPoints){
     		// costruct the new Gps object in the polyline
-    		Gps point= new Gps(gpspoint.getLatitude()-base_lat,gpspoint.getLongitude()-base_lng);
+    		//Gps point= new Gps(gpspoint.getLatitude()-base_lat,gpspoint.getLongitude()-base_lng);
+            int lat_e5_int=(int) Math.floor(gpspoint.getLatitude() * 1e5);
+            int lng_e5_int=(int) Math.floor(gpspoint.getLongitude() * 1e5);
+            int poly_lat = lat_e5_int-base_lat;  
+            int poly_lng = lng_e5_int-base_lng;  
     		//call the encodeGpsPoint for every point
-    		result=result+encodeGpsPoint(point);
+    		result=result+encodeInteger(poly_lat)+encodeInteger(poly_lng);
     		//update the base point
-    		base_lat=gpspoint.getLatitude();
-    		base_lng=gpspoint.getLongitude();
+    		base_lat=lat_e5_int;
+    		base_lng=lng_e5_int;
     	}
     	return result;
-    }
-    /**
-	 * @param point an object of Gps
-	 * convert the double of the point to integer and encode it by call the function encodeInteger
-	 *
-    */
-    private  String encodeGpsPoint(Gps point){
-    	int lat_e5_int=(int) Math.floor(point.getLatitude() * 1e5);
-    	int lng_e5_int=(int) Math.floor(point.getLongitude() * 1e5);
-    	return encodeInteger(lat_e5_int)+encodeInteger(lng_e5_int);
     }
  	/**
 	 * @param binary_code_origin an integer which is converted from a double in the Gps object
@@ -59,10 +53,11 @@ public class PolylineEncoder {
         String result = "";  
        	/**
 		 * Break the binary value out into 5-bit chunks 
-		 * The end symbol is the binary code is less than 0x20 in binary is 1000000 means the binary is shorter than 6 bits
-		 *
+		 * The end symbol is the binary code is less than 32 
+		 * the binary is 1000000 means the binary is shorter than 6 bits
+         * so we cannot left shift by 5
    		*/
-        while (binary_code >= 0x20) {  
+        while (binary_code >= 32) {  
         	//get the last five bits in the binary code 
             int chunk = binary_code & 0x1F;  
             //OR the value with 0x20 and add 63 
