@@ -26,7 +26,7 @@ public class PolylineEncoder {
     		Gps point= new Gps(gpspoint.getLatitude()-base_lat,gpspoint.getLongitude()-base_lng);
     		//call the encodeGpsPoint for every point
     		result=result+encodeGpsPoint(point);
-
+    		//update the base point
     		base_lat=gpspoint.getLatitude();
     		base_lng=gpspoint.getLongitude();
     	}
@@ -74,6 +74,7 @@ public class PolylineEncoder {
             //left shift by 5 so that we throw the last five bits
             binary_code >>= 5;  
         }  
+        //the last chunk doesn't OR with 0x20
         result += (char) (binary_code + 63);  
         return result;  
     } 
