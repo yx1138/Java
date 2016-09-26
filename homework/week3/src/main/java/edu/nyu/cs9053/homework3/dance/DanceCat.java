@@ -9,7 +9,7 @@ public class DanceCat{
 	private final DanceMove[] danceMoves;
 	//return the value between 0 - 100 which controls the competitor cat's skill level
 	public static int getComputerLevel(){
-		int result = RANDOM.nextInt(101);
+		int result = RANDOM.nextInt(100);
 		return result;
 	}
 	// form a DanceMove list by two argument moves,idealMoves
