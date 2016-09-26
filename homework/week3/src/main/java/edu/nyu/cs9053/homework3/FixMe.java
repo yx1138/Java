@@ -10,7 +10,7 @@ public class FixMe {
     private static String format_name(String firstName, String lastName) {
         return String.format("%s %s", firstName, lastName);
     }
-    private String name;
+    private final String name;
 
     private String secondary;
 
