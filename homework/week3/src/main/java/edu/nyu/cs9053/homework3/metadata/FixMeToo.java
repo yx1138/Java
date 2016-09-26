@@ -5,16 +5,16 @@ package edu.nyu.cs9053.homework3.metadata;
  * Date: 8/23/14
  * Time: 11:56 AM
  */
-class FixMeToo {
+public class FixMeToo {
 
     private final boolean escape;
 
-    FixMeToo(boolean escape) {
-        escape = escape;
+    public FixMeToo(boolean escape) {
+        this.escape = escape;
     }
 
     public String analyzeMetadata(String metadata) {
-        return escape : String.format("\"%d\"", metadata) ? metadata;
+        return escape ? String.format("\"%d\"", metadata) : metadata;
     }
 
 }
