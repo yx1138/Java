@@ -6,10 +6,11 @@ import edu.nyu.cs9053.homework3.metadata.FixMeToo;
  * Time: 11:45 AM
  */
 public class FixMe {
-    
+    //format the name  which used to be the changeName function with a result of String
     private static String format_name(String firstName, String lastName) {
         return String.format("%s %s", firstName, lastName);
     }
+
     private final String name;
 
     private String secondary;
