@@ -6,20 +6,4 @@ public class Gymnosperm extends Seed{
 	public Gymnosperm(){
 		super(SEED_ENCLOSED);
 	}
-	public boolean equals(Object o){
-		if (this == o){
-			return true;
-		}
-		if(o == null || getClass() != o.getClass()){
-			return false;
-		}
-		if ( !super.equals(o)){
-			return false;
-		}
-		return true;
-	}
-	public  int hashCode(){
-		int result = super.hashCode();
-		return result;
-	}
 }
