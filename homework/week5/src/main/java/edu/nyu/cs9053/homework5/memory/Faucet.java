@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Faucet {
 
-    private class Drain {
+    private static class Drain {
 
         private void drain(Water water) {
             water.consume();
@@ -23,7 +23,7 @@ public class Faucet {
 
     }
 
-    private class Water {
+    private static class Water {
 
         private final AtomicInteger remaining;
 
@@ -49,7 +49,7 @@ public class Faucet {
 
     private static final long BYTE_TO_MB = 1024L * 1024L;
 
-    private final static int MAX_FLOW = 1000;
+    private static final  int MAX_FLOW = 1000;
 
     /**
      * Students, do not modify this main method
@@ -82,11 +82,11 @@ public class Faucet {
         }
     }
 
-    private final Random random;
+    private static  Random random;
 
     private final Drain drain;
 
-    private final Object[] flow;
+    private static  Object[] flow;
 
     public Faucet(Random random) {
         this.random = random;
