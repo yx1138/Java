@@ -1,5 +1,6 @@
 package edu.nyu.cs9053.homework6;
-
+import java.lang.reflect.InvocationTargetException;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -12,7 +13,11 @@ import java.util.regex.Pattern;
  * Time: 6:21 PM
  */
 public class CenterDiseaseControl {
-
+    private static final long SEED = 3843726185L;
+    private static final String SMALLPOX_ANTIDOTE = "1110";
+    private static final String EBOLA_ANTIDOTE = "0101";
+    private static final String SARS_ANTIDOTE = "0001";
+    private static final String H1N1_ANTIDOTE = "10101001101101101001";
     public static void main(String[] args) {
         if ((args == null) || (args.length != 1)) {
             throw new AssertionError("Please specify your NetID");
@@ -31,6 +36,7 @@ public class CenterDiseaseControl {
 
     public CenterDiseaseControl(String id) {
         this.id = CRC32s.crc32(id);
+        
     }
 
     public boolean areDiseasesCured(Population population) {
@@ -41,6 +47,7 @@ public class CenterDiseaseControl {
         }
         for (String value : infections.values()) {
             if ("".equals(value)) {
+
                 throw new IllegalStateException("Not properly setup");
             }
         }
@@ -59,22 +66,22 @@ public class CenterDiseaseControl {
         return true;
     }
 
-    public String getSmallPoxCure() {
+    @Vaccine(cures = Disease.SmallPox , seed = SEED , antidote=SMALLPOX_ANTIDOTE )public String getSmallPoxCure() {
         String idAsBinary = getIdAsBinary();
         return idAsBinary.substring(0, 4);
     }
 
-    public String getEbolaCure() {
+    @Vaccine(cures = Disease.Ebola , seed = SEED , antidote=EBOLA_ANTIDOTE )public String getEbolaCure() {
         String idAsBinary = getIdAsBinary();
         return idAsBinary.substring(4, 8);
     }
 
-    public String getSarsCure() {
+    @Vaccine(cures = Disease.Sars , seed = SEED , antidote=SARS_ANTIDOTE )public String getSarsCure() {
         String idAsBinary = getIdAsBinary();
         return idAsBinary.substring(8, 12);
     }
 
-    public String getH1N1Cure() {
+    @Vaccine(cures = Disease.H1N1 , seed = SEED , antidote=H1N1_ANTIDOTE)public String getH1N1Cure() {
         String idAsBinary = getIdAsBinary();
         return idAsBinary.substring(12);
     }
@@ -84,10 +91,19 @@ public class CenterDiseaseControl {
         Map<Disease, String> diseases = new HashMap<>();
         for (Method method : methods) {
             if (method.isAnnotationPresent(Infection.class)) {
-                Infection infection = method.getAnnotation(Infection.class);
+                
+                Annotation annotaion=method.getAnnotation(Infection.class);
+                Infection infection = (Infection)  annotaion;
                 Disease disease = infection.cause();
                 // TODO - uncomment and fix
-                String result = ""; // (String) method.invoke(population);
+                String result = ""; // 
+                try{
+                   result=  (String) method.invoke(population);
+                   
+                }
+                catch ( IllegalAccessException | InvocationTargetException e){
+                    System.out.println(e.getMessage());
+                }
                 if (!"".equals(result)) {
                     diseases.put(disease, result);
                 }
@@ -105,7 +121,14 @@ public class CenterDiseaseControl {
                 Disease disease = vaccine.cures();
                 // TODO - uncomment and fix
                 String result = ""; // (String) method.invoke(this);
+                try{
+                   result=  (String) method.invoke(this);
+                }
+                catch ( IllegalAccessException | InvocationTargetException e){
+                      System.out.println(e.getMessage());
+                }
                 if (!"".equals(result) && (vaccine.seed() == id) && (vaccine.antidote().equals(result))) {
+                    
                     cures.put(disease, result);
                 }
             }
@@ -114,7 +137,9 @@ public class CenterDiseaseControl {
     }
 
     private String getIdAsBinary() {
-        return String.format("%16s", Long.toBinaryString(id)).replace(' ', '0');
+        String result= String.format("%16s", Long.toBinaryString(id)).replace(' ', '0');
+        
+        return result;
     }
 
 }
