@@ -1,6 +1,7 @@
 package edu.nyu.cs9053.homework8;
 
 import java.util.List;
+import java.util.Collections;
 
 /**
  * User: blangel
@@ -9,8 +10,10 @@ import java.util.List;
  */
 public class Lists {
 
-    public static List reverse(List list) {
-	// TODO
+    public static <T>  List<T> reverse(List<T> list) {
+    	
+    	Collections.reverse(list);
+    	return list;
     }
-
+    
 }

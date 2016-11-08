@@ -2,13 +2,13 @@ package edu.nyu.cs9053.homework8;
 
 import java.util.Collection;
 import java.util.Map;
-
+import java.util.List;
 /**
  * User: blangel
  * Date: 10/14/14
  * Time: 6:27 PM
  */
-public interface Multimap<K, V> extends Map<K, Collection<V>> {
+public interface Multimap<K, V> extends Map<K, List<V>> {
 
     /**
      * @param key key into which to place {@code value}
