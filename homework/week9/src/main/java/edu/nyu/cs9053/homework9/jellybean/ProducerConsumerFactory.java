@@ -8,11 +8,11 @@ package edu.nyu.cs9053.homework9.jellybean;
 public class ProducerConsumerFactory {
 
     public static Producer createProducer() {
-        // TODO
+        return new JellyBeanProducer();
     }
 
     public static Consumer createConsumer() {
-        // TODO
+        return new JellyBeanConsumer();
     }
 
 }

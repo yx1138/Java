@@ -9,17 +9,17 @@ public class PhilosopherFactory {
 
     public static Philosopher construct(final String name) {
         // TODO - return your implementation of Philosopher
-        return null;
+        return new PhilosopherWithDijkstra(name);
     }
 
     public static Philosopher constructWithWaiter(final Waiter waiter, final String name) {
         // TODO - return your implementation of Philosopher which uses the Waiter
-        return null;
+        return new PhilosopherWithWaiter(name,waiter);
     }
 
     public static Waiter constructWaiter() {
         // TODO - return a new Waiter
-        return null;
+        return new Waiter();
     }
 
 }
