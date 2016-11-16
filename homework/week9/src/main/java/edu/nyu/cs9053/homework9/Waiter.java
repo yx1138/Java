@@ -24,14 +24,6 @@ public class Waiter {
 		}
 		return true;
     }
-    public void release(Chopstick left, Chopstick right){
-    	Semaphore left_available = left.getSemaphore();
-		Semaphore right_available = right.getSemaphore();
-		
-		left_available.release();
-		
-		right_available.release();
-    }
     public Semaphore getSemaphore(){
  		return available;
  	}

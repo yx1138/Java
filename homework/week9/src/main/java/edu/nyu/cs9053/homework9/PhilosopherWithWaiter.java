@@ -28,15 +28,15 @@ public class PhilosopherWithWaiter implements Philosopher{
 		
 	} 
 	public void doneEating(Chopstick left, Chopstick right, Callback callback){
-		callback.putDownChopstick(left);
-		callback.putDownChopstick(right);
+		
 		Semaphore left_available = left.getSemaphore();
 		Semaphore right_available = right.getSemaphore();
+
+		callback.putDownChopstick(left);
+		callback.putDownChopstick(right);
 		
 		left_available.release();
-		
 		right_available.release();
-		//waiter.release(left,right);
 	}
 	public String getName(){
 		return name;
