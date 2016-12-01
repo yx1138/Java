@@ -89,6 +89,7 @@ public class Counter {
                 System.out.printf("Word %s appears %d times within %s%n", word, count, fileName);
             }
         });
+        counter.stop();
         // TODO - fix me - need to ensure that this method doesn't return until all files have had all words counted
     }
 

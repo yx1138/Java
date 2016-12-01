@@ -50,7 +50,12 @@ public class ThreadedWordCounter extends AbstractConcurrencyFactorProvider imple
     @Override public void stop() {
         // TODO - stop the threads
         for(int i =0 ;i<super.getConcurrencyFactor();i++){
-            threads[i].interrupt();
+            try{
+                threads[i].join();
+                }
+             catch (InterruptedException e) {
+                    e.printStackTrace();
+                 }
         }
     }
 

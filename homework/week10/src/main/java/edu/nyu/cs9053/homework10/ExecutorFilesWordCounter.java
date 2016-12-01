@@ -16,7 +16,7 @@ import java.util.*;
 public class ExecutorFilesWordCounter extends AbstractConcurrencyFactorProvider implements FilesWordCounter {
     private ExecutorService executor;
     private MyFileThread[] mythreads;
-    private Future[] futures ;
+    private Future[] futures;
     public ExecutorFilesWordCounter(int concurrencyFactor) {
         super(concurrencyFactor);
         mythreads = new MyFileThread[concurrencyFactor];
@@ -30,6 +30,7 @@ public class ExecutorFilesWordCounter extends AbstractConcurrencyFactorProvider 
         int concurrencyFactor = super.getConcurrencyFactor();
         
         Iterator iterator = files.entrySet().iterator();
+   
 
         // TODO - implement this class using Thread objects; one Thread per {@link #concurrencyFactor} with each Thread handling at most one file at one time
         // HINT - do not create the ExecutorService object in this method
@@ -46,23 +47,21 @@ public class ExecutorFilesWordCounter extends AbstractConcurrencyFactorProvider 
         
         while(iterator.hasNext()){
             for(int i =0 ;i<concurrencyFactor;i++){
-                if(futures[i]!=null && iterator.hasNext()){
+                if(futures[i].isDone() && iterator.hasNext()){
                     Map.Entry entry = (Map.Entry) iterator.next();
                     String filename = (String)entry.getKey();
                     String  filecontent = (String)entry.getValue();
                     mythreads[i] = new MyFileThread(filecontent,word,concurrencyFactor,filename,callback);
                     futures[i] = executor.submit(mythreads[i]);  
-                    
                 }
             }
         }
-        executor.shutdown();
 
     }
 
     @Override public void stop() {
         // TODO - stop the executor
-        executor.shutdownNow();
+        executor.shutdown();
     }
     class MyFileThread implements Runnable{
         private String filename;
@@ -82,8 +81,8 @@ public class ExecutorFilesWordCounter extends AbstractConcurrencyFactorProvider 
             WordCounter.Callback callback=new WordCounter.Callback(){
             public void counted( long count) {
                 call.counted(filename,count);
-                }
-            };
+            }
+        };
             twc.count(fileContent,word,callback);
         }
     }

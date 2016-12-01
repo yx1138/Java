@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * Time: 3:33 PM
  */
 public class ExecutorWordCounter extends AbstractConcurrencyFactorProvider implements WordCounter {
-    private ExecutorService executor;                      
+    private ExecutorService executor;            
     private MyThread[] mythreads;
     public ExecutorWordCounter(int concurrencyFactor) {
         super(concurrencyFactor);
@@ -36,18 +36,16 @@ public class ExecutorWordCounter extends AbstractConcurrencyFactorProvider imple
         executor.execute(mythreads[concurrencyFactor-1]);
 
         executor.shutdown();
-        try{
-             executor.awaitTermination(Integer.MAX_VALUE, TimeUnit.SECONDS);
+        //wait all the thread terminated
+        while(!executor.isTerminated()){
+
         }
-       catch (InterruptedException e){
-            e.printStackTrace();
-       }
         callback.counted(counter.get());
     }
 
     @Override public void stop() {
         // TODO - stop the executor
-        executor.shutdownNow();
+        executor.shutdown();
     }
     class MyThread implements Runnable{
         private String[] words;
