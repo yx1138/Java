@@ -58,7 +58,7 @@ Tentative schedule - *Note* two lectures will take place on Thursdays because of
 | - | 11/23 | Thanksgiving Break | - |
 | 11 | __12/1__ Thursday in RH721 | IO/NIO | [supplemental] |
 | 12 | 12/7 | Functional Java (Lambdas / Streams / etc) | 6.3 & [supplemental] |
-| 13 | 12/14 | Libraries (Guava / Jackson) / Testing (Junit / Mockito) / IDEs / Patterns (Builder, Dependency Injection, etc) | |
+| 13 | 12/14 | Libraries (Guava / Jackson) / Testing (Junit / Mockito) / Patterns (Builder, Dependency Injection, etc) | |
 | - | 12/21 | __Final__ (see [Exams](#exams)) | - |
 
 ### Participation
