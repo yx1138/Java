@@ -11,15 +11,19 @@ import java.nio.charset.Charset;
 public class BlockingChatter implements Chatter {
 	private static final Charset UTF8 = Charset.forName("UTF-8");
 	private static final int READ_BUFFER_SIZE = 1024;
-	private static final int MAX_LINE = 21691;
+	private static final int MAX_LINE = 21690;
 	private final InputStream chatServerInput;
 	private final OutputStream chatServerOutput;
 	private final InputStream userInput;
+	private String[] contents;
+	private int validLineNumber;
     public BlockingChatter(InputStream chatServerInput, OutputStream chatServerOutput, InputStream userInput) {
         // TODO
         this.chatServerInput = chatServerInput;
         this.chatServerOutput = chatServerOutput;
         this.userInput = userInput;
+        contents = null;
+        validLineNumber = 0;
 
     }
 
@@ -60,20 +64,30 @@ public class BlockingChatter implements Chatter {
         
     }
     public void EasterEgg() throws IOException {
-    	String file = "src/main/resources/Moby Dick.txt";
+    	if(contents==null){
+    		loadTXTcontent();
+    	}
     	Random random = new Random();
-    	int random_line_number = random.nextInt(MAX_LINE);
+    	int random_line_number = random.nextInt(validLineNumber);
+		byte[] buffer = contents[random_line_number].getBytes(UTF8);
+		chatServerOutput.write(buffer, 0, buffer.length);
+
+    }
+    public void loadTXTcontent() throws IOException{
+    	contents = new String[MAX_LINE];
+    	String file = "src/main/resources/Moby Dick.txt";
     	FileReader fr = new FileReader(file);
         BufferedReader reader = new BufferedReader(fr);
     	String line = reader.readLine();
-		for (int i = 0; i < random_line_number + 1; i++) {
+    	contents[0] = line;
+    	validLineNumber++;
+		for (int i = 0; i <  MAX_LINE; i++) {
   			line = reader.readLine();
+  			//skip the blank line
+  			if(!line.trim().equals("")){
+				contents[validLineNumber] = line;
+    			validLineNumber++;
+  			}
 		}
-		if(line.equals("")){
-			line=" ";
-		}
-		byte[] buffer = line.getBytes(UTF8);
-		chatServerOutput.write(buffer, 0, buffer.length);
-
     }
 }

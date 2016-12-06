@@ -44,7 +44,6 @@ public class NonBlockingChatter implements Chatter {
         		writeBuffer.flip();
         		chatServerChannel.write(writeBuffer);
         		writeBuffer.clear();
-       
             	int result = chatServerChannel.read(readBuffer);
             	if(result<1){
             		continue;
