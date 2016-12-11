@@ -44,7 +44,8 @@ public class Conversions {
      * This should <b>not</b> be parallel
      */
     public static List<String> removeEmptyValuesJava8(List<String> values) {
-	// TODO - remove this comment once completed
+	    List<String> nonEmpty = values.stream().filter(c -> c != null).collect(Collectors.toList());
+        return nonEmpty;
     }
 
     /**
@@ -90,7 +91,15 @@ public class Conversions {
      * This should <b>be</b> parallel
      */
     public static NavigableSet<String> getUniqueAndNavigableLowerCaseMakeNamesJava8(VehicleLoader vehicleLoader) {
-	// TODO - remove this comment once completed
+	    Set<VehicleMake> uniqueVehicleMakes = new HashSet<>();
+        Region[] regions = Region.values();
+        for(Region region : regions){
+            List<VehicleMake> regionMakes = vehicleLoader.getVehicleMakesByRegion(region.name());
+            Set<VehicleMake> temp = regionMakes.stream().filter(c -> c != null).collect(Collectors.toSet());
+            uniqueVehicleMakes.addAll(temp);
+        }
+        Set<String> navigableMakeNames = uniqueVehicleMakes.stream().filter(c -> c.getName() != null).map(VehicleMake::getName).map(String::toLowerCase).collect(Collectors.toSet());
+        return new TreeSet(navigableMakeNames);
     }
 
 }
