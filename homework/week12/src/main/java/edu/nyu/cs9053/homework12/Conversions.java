@@ -44,7 +44,7 @@ public class Conversions {
      * This should <b>not</b> be parallel
      */
     public static List<String> removeEmptyValuesJava8(List<String> values) {
-	    List<String> nonEmpty = values.stream().filter(c -> c != null).collect(Collectors.toList());
+	    List<String> nonEmpty = values.stream().filter(c -> c != null).filter(c -> !c.trim().isEmpty()).map(String::trim).collect(Collectors.toList());
         return nonEmpty;
     }
 

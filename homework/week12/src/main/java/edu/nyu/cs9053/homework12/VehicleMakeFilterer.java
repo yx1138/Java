@@ -50,10 +50,10 @@ public class VehicleMakeFilterer {
 
         Function<Region, Optional<String>> regionGetName = s->Optional.of(s.name());
         Optional<String> name = optionalRegion.flatMap(regionGetName);
+
         Function<VehicleLoader,Optional<List<VehicleMake>>> getVehicleMakesByRegionWithOptional = s->Optional.of(s.getVehicleMakesByRegion(name.get()));
-
         Optional<List<VehicleMake>> regionMakes = optionalLoader.flatMap(getVehicleMakesByRegionWithOptional);
-
+        
         List<VehicleMake> matches = regionMakes.get().stream().filter(c -> c.getName() != null).filter(c -> c.getName().startsWith(optionalNameStartsWith.get())).collect(Collectors.toList());
         Optional<List<VehicleMake>> optionalMatches= Optional.ofNullable(matches);
         return optionalMatches;
